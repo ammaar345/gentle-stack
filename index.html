@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Gentle Stack — Steal a Brainrot, Roblox & Online Stores</title>
+<meta name="description" content="A gentle, dark-themed guide combining all the research on Steal a Brainrot, Murder Mystery 2, Eldorado.gg, G2G.com, and online store selling for digital products." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  /* Dark gentle palette */
+  --bg-deep: #1a1530;
+  --bg-mid: #221c3d;
+  --bg-soft: #2b244a;
+  --bg-card: rgba(45, 37, 70, 0.72);
+  --bg-card-solid: #2d2546;
+  --bg-pill: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Soft pastels adapted for dark */
+  --rose: #f4a8c0;
+  --rose-deep: #e887a6;
+  --rose-soft: rgba(244, 168, 192, 0.18);
+  --lavender: #c4b5fd;
+  --lavender-deep: #a78bfa;
+  --lavender-soft: rgba(196, 181, 253, 0.18);
+  --mint: #a7f3d0;
+  --mint-deep: #6ee7b7;
+  --mint-soft: rgba(167, 243, 208, 0.16);
+  --peach: #fdba74;
+  --peach-deep: #fb923c;
+  --peach-soft: rgba(253, 186, 116, 0.16);
+  --butter: #fde68a;
+  --butter-deep: #fcd34d;
+  --butter-soft: rgba(253, 230, 138, 0.14);
+  --coral: #fb7185;
+  --coral-deep: #f43f5e;
+  --coral-soft: rgba(251, 113, 133, 0.18);
+  --gold: #fcd34d;
+  --gold-deep: #f59e0b;
+  --sky: #93c5fd;
+  --sky-deep: #60a5fa;
+
+  /* Text */
+  --ink: #e8e4f3;
+  --ink-2: #c4bdd9;
+  --ink-3: #948ba8;
+  --ink-4: #6e6582;
+
+  --ok: #6ee7b7;
+  --warn: #fcd34d;
+  --stop: #fb7185;
+
+  --shadow-s: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-m: 0 10px 30px rgba(0, 0, 0, 0.28);
+  --shadow-l: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --font: 'Quicksand', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-round: 'Fredoka', 'Quicksand', sans-serif;
+
+  --maxw: 920px;
+
+  --bg-grad:
+    radial-gradient(1200px 700px at 15% -10%, rgba(196, 181, 253, 0.18) 0%, transparent 55%),
+    radial-gradient(1000px 600px at 100% 0%, rgba(244, 168, 192, 0.16) 0%, transparent 50%),
+    radial-gradient(900px 900px at 50% 120%, rgba(167, 243, 208, 0.10) 0%, transparent 55%),
+    linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-mid) 55%, var(--bg-soft) 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--bg-grad);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+  font-weight: 500;
+}
+
+a { color: var(--rose); font-weight: 600; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: var(--rose-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Floating ambient blobs */
+.blobs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: drift 22s ease-in-out infinite; }
+.blob.b1 { width: 280px; height: 280px; top: 8%; left: -80px; background: var(--rose-soft); }
+.blob.b2 { width: 220px; height: 220px; top: 62%; right: -60px; background: var(--lavender-soft); animation-delay: 5s; }
+.blob.b3 { width: 180px; height: 180px; top: 32%; right: 12%; background: rgba(253, 230, 138, 0.14); opacity: 0.3; animation-delay: 9s; }
+.blob.b4 { width: 140px; height: 140px; bottom: 8%; left: 14%; background: var(--mint-soft); animation-delay: 3s; }
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(26px, -30px) scale(1.06); }
+  66% { transform: translate(-20px, 22px) scale(0.96); }
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px max(16px, env(safe-area-inset-right)) 80px max(16px, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+.reveal { opacity: 0; transform: translateY(22px); animation: rise .7s cubic-bezier(.22, 1, .36, 1) forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+/* Header / Hero */
+.hero { text-align: center; padding: 28px 0 12px; }
+.hero h1 {
+  font-family: var(--font-round);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 6.5vw, 2.7rem);
+  color: var(--ink);
+  text-wrap: balance;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.hero h1 .accent { color: var(--rose); display: inline-block; transform: rotate(-2deg); }
+.hero .tagline {
+  font-size: clamp(0.98rem, 3.2vw, 1.12rem);
+  color: var(--ink-2);
+  font-weight: 600;
+  max-width: 44ch;
+  margin: 0 auto 6px;
+}
+.hero .asof { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.4px; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-s);
+  position: sticky;
+  top: 12px;
+  z-index: 30;
+}
+.tab {
+  font-family: var(--font-round);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.4px;
+  color: var(--ink-2);
+  background: var(--bg-pill);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.tab:hover { background: var(--rose-soft); color: var(--rose); border-color: var(--rose); transform: translateY(-2px); }
+.tab.active {
+  background: linear-gradient(135deg, var(--rose), var(--lavender));
+  color: #1a1530;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(244, 168, 192, 0.32);
+}
+
+/* Tab panels */
+.panel { display: none; }
+.panel.active { display: flex; flex-direction: column; gap: 22px; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Card */
+.card {
+  width: 100%;
+  min-width: 0;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-m);
+  padding: 28px 26px;
+}
+.card.hero-card {
+  background: linear-gradient(155deg, rgba(244, 168, 192, 0.18), rgba(196, 181, 253, 0.18));
+  border-color: var(--rose);
+  position: relative;
+  overflow: hidden;
+}
+.card.hero-card::before {
+  content: "";
+  position: absolute; top: -40px; right: -40px; width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  border-radius: 50%;
+}
+
+h2.sec {
+  font-family: var(--font-round);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+.kicker {
+  font-family: var(--font-round);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 1.6px;
+  color: var(--rose);
+  margin-bottom: 6px;
+}
+.lede {
+  color: var(--ink-2);
+  font-weight: 600;
+  margin-bottom: 16px;
+  max-width: 64ch;
+}
+
+/* Pills */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+.pill {
+  font-family: var(--font-round);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--butter-soft);
+  color: var(--butter);
+  border: 1px solid rgba(253, 230, 138, 0.3);
+}
+.pill.lock { background: var(--rose-soft); color: var(--rose); border-color: rgba(244, 168, 192, 0.3); }
+.pill.open { background: var(--mint-soft); color: var(--mint); border-color: rgba(167, 243, 208, 0.3); }
+.pill.later { background: var(--lavender-soft); color: var(--lavender); border-color: rgba(196, 181, 253, 0.3); }
+
+/* Lists */
+ol.steps, ul.facts {
+  display: flex; flex-direction: column; gap: 9px; padding-left: 1.2em; font-weight: 600;
+}
+ol.steps li, ul.facts li { color: var(--ink); }
+ol.steps li::marker { color: var(--rose); font-weight: 700; }
+
+/* Notes / callouts */
+.note {
+  margin-top: 14px;
+  background: var(--butter-soft);
+  border: 1px solid rgba(253, 230, 138, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.94rem;
+}
+.warnbox {
+  background: var(--rose-soft);
+  border: 1px solid rgba(244, 168, 192, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-weight: 600;
+  color: var(--rose);
+  font-size: 0.94rem;
+  margin-top: 12px;
+}
+.infobox {
+  background: var(--lavender-soft);
+  border: 1px solid rgba(196, 181, 253, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.94rem;
+  margin-top: 12px;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 8px 0 4px;
+  border-radius: var(--radius-md);
+  max-width: 100%;
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg-card-solid);
+}
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  font-family: var(--font-round);
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  color: var(--ink-2);
+  background: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+}
+tr:last-child td { border-bottom: none; }
+td { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+.opencell { color: var(--mint); font-weight: 700; }
+.lockcell { color: var(--coral); font-weight: 700; }
+.rose-cell { color: var(--rose); font-weight: 700; }
+
+/* Mobile stacked cards */
+@media (max-width: 719px) {
+  .table-wrap { overflow: visible; }
+  .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
+  .table-wrap thead { display: none; }
+  .table-wrap tr {
+    background: var(--bg-card-solid);
+    border-radius: 16px;
+    padding: 14px 14px 10px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 0 1px var(--border);
+  }
+  .table-wrap td { border: none; padding: 4px 0 6px; white-space: normal; }
+  .table-wrap td:first-child {
+    font-family: var(--font-round);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    padding-top: 0;
+    padding-bottom: 8px;
+  }
+  .table-wrap td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-round);
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
+    color: var(--ink-3);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+}
+
+/* Grids */
+.grid2 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
+@media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.grid3 { display: grid; grid-template-columns: 1fr; gap: 14px; min-width: 0; }
+@media (min-width: 900px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+.mini {
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: var(--radius-md);
+  padding: 18px 18px 14px;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.mini h3 {
+  font-family: var(--font-round);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.mini p, .mini li { font-size: 0.92rem; font-weight: 600; color: var(--ink-2); }
+
+/* Index cards */
+.index-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 22px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.index-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose);
+  background: rgba(244, 168, 192, 0.08);
+  text-decoration: none;
+}
+.index-card .icon {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.icon.brainrot { background: linear-gradient(135deg, var(--rose-soft), var(--lavender-soft)); border: 1px solid var(--rose); }
+.icon.mm2 { background: linear-gradient(135deg, rgba(251, 113, 133, 0.18), rgba(196, 181, 253, 0.18)); border: 1px solid var(--coral); }
+.icon.seller { background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft)); border: 1px solid var(--gold); }
+.icon.fees { background: linear-gradient(135deg, var(--mint-soft), var(--lavender-soft)); border: 1px solid var(--mint); }
+.icon.stores { background: linear-gradient(135deg, rgba(147, 197, 253, 0.18), var(--lavender-soft)); border: 1px solid var(--sky); }
+
+.index-card h3 {
+  font-family: var(--font-round);
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.index-card p { color: var(--ink-2); font-size: 0.94rem; font-weight: 600; }
+.index-card .arrow { color: var(--rose); margin-left: auto; font-family: var(--font-round); }
+
+/* Hero sub-section list inside cards */
+ol.bulleted { display: flex; flex-direction: column; gap: 10px; padding-left: 1.2em; font-weight: 600; }
+ol.bulleted li { color: var(--ink); }
+ol.bulleted li a { color: var(--lavender); }
+
+/* Buttons */
+.btn {
+  border: none; cursor: pointer;
+  font-family: var(--font-round);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--rose), var(--lavender));
+  padding: 14px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 24px rgba(244, 168, 192, 0.28);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  text-decoration: none;
+  flex: 1 1 180px;
+  transition: transform 0.2s ease;
+}
+.btn:hover { transform: translateY(-3px); text-decoration: none; color: var(--bg-deep); }
+.btn.ghost { background: rgba(255, 255, 255, 0.06); color: var(--ink); border: 1px solid var(--border-strong); box-shadow: none; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+/* Badges (the round emblem style) */
+.badge-circle {
+  width: 110px; height: 110px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), var(--bg-soft));
+  border: 2px solid var(--rose);
+  box-shadow: 0 12px 34px rgba(244, 168, 192, 0.22), inset 0 0 0 6px rgba(0, 0, 0, 0.18);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; margin: 0 auto 8px;
+  position: relative;
+}
+.badge-circle::after {
+  content: ""; position: absolute; inset: -3px; border-radius: inherit;
+  box-shadow: 0 0 0 0 var(--rose-soft); animation: pulse 3.4s ease-out infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 168, 192, 0.35); }
+  70%, 100% { box-shadow: 0 0 0 22px rgba(244, 168, 192, 0); }
+}
+.badge-circle .b-top { font-family: var(--font-round); font-weight: 600; font-size: 10px; letter-spacing: 2px; color: var(--ink-2); }
+.badge-circle .b-run { font-family: var(--font-round); font-weight: 700; font-size: 22px; line-height: 0.9; color: var(--rose); }
+.badge-circle .b-hq { font-family: var(--font-round); font-weight: 700; font-size: 9px; letter-spacing: 1.5px; color: var(--bg-deep); background: var(--rose); padding: 2px 8px; border-radius: var(--radius-pill); margin-top: 3px; }
+
+/* Footer */
+.foot {
+  text-align: center;
+  margin-top: 18px;
+  padding: 24px 12px;
+  font-family: var(--font-round);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 1.4px;
+  color: var(--ink-3);
+}
+.foot .g { color: var(--rose); }
+
+/* Comparison highlight bar */
+.badge-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: var(--radius-pill);
+  margin: 6px 0;
+  font-family: var(--font-round);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+.badge-row .step { color: var(--ink-3); }
+.badge-row .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+
+/* Pro/con lists */
+.procon {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+@media (min-width: 720px) { .procon { grid-template-columns: 1fr 1fr; } }
+.procon .pcard {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border);
+}
+.procon .pcard h4 {
+  font-family: var(--font-round);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.procon .pcard ul { padding-left: 18px; }
+.procon .pcard li { font-size: 0.92rem; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
+.procon .pcard.pros { border-color: rgba(167, 243, 208, 0.3); }
+.procon .pcard.pros h4 { color: var(--mint); }
+.procon .pcard.cons { border-color: rgba(251, 113, 133, 0.3); }
+.procon .pcard.cons h4 { color: var(--coral); }
+
+/* Two accent variants */
+.accent-a { color: var(--rose); }
+.accent-b { color: var(--lavender); }
+.accent-c { color: var(--mint); }
+.accent-d { color: var(--butter); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--bg-soft); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--lavender-deep); }
+</style>
+</head>
+<body>
+
+<div class="blobs" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+</div>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="badge-circle">
+      <span class="b-top">STACK</span>
+      <span class="b-run">soft</span>
+      <span class="b-hq">GUIDES</span>
+   </div>
+    <h1>The <span class="accent">Gentle Stack</span></h1>
+    <p class="tagline">Steal a Brainrot · Murder Mystery 2 · Eldorado.gg · G2G.com · Selling digital goods online — all in one place</p>
+    <p class="asof">Compiled 22 Aug 2026 · Dark & gentle · 5 tabs, pick what you need</p>
+ </header>
+
+  <!-- TABS -->
+  <nav class="tabs reveal" id="tabs" aria-label="Topic navigation">
+    <button class="tab active" data-tab="home" type="button">Home</button>
+    <button class="tab" data-tab="brainrot" type="button">Brainrot & MM2 Trading</button>
+    <button class="tab" data-tab="mm2-level" type="button">MM2 Leveling</button>
+    <button class="tab" data-tab="seller-brief" type="button">Eldorado Seller Brief</button>
+    <button class="tab" data-tab="fees" type="button">Seller Fee Guide</button>
+    <button class="tab" data-tab="stores" type="button">Selling Online</button>
+ </nav>
+
+  <!-- ============ HOME ============ -->
+  <section class="panel active" id="panel-home">
+
+    <div class="card hero-card reveal">
+      <p class="kicker">START HERE</p>
+      <h2 class="sec">Five guides. One gentle place</h2>
+      <p class="lede">Every tab here came from real research compiled in August 2026. Pick the topic you need; everything else stays out of your way</p>
+      <ol class="bulleted">
+        <li><a href="#" data-tab-link="brainrot">Brainrot & MM2 trading on Eldorado.gg</a> — under-$2 flips, secret brainrots, Discord middleman servers, MM2 marketplaces</li>
+        <li><a href="#" data-tab-link="mm2-level">MM2 fast leveling</a> — how XP actually works, best maps per role, pro grinding tips</li>
+        <li><a href="#" data-tab-link="seller-brief">Eldorado seller brief</a> — what the live market looks like, where ROI lives, fees & payouts</li>
+        <li><a href="#" data-tab-link="fees">Eldorado vs G2G fee guide</a> — full commission, withdrawal, hold, and KYC breakdown</li>
+        <li><a href="#" data-tab-link="stores">Selling on online stores</a> — digital products playbook: pricing, packaging, channels</li>
+     </ol>
+   </div>
+
+    <div class="grid2 reveal" style="margin-top:6px">
+      <a class="index-card" href="#" data-tab-link="brainrot">
+        <div class="icon brainrot">🧠</div>
+        <div>
+          <h3>Brainrot & MM2 Trading</h3>
+          <p>Live Eldorado listings under $2, secret brainrot ranks, Discord middleman servers, scaling paths</p>
+       </div>
+        <span class="arrow">→</span>
+     </a>
+
+      <a class="index-card" href="#" data-tab-link="mm2-level">
+        <div class="icon mm2">🔪</div>
+        <div>
+          <h3>MM2 Leveling Guide</h3>
+          <p>XP mechanics, role-by-role maps, survival-first strategies, pro grinding tips</p>
+       </div>
+        <span class="arrow">→</span>
+     </a>
+
+      <a class="index-card" href="#" data-tab-link="seller-brief">
+        <div class="icon seller">💰</div>
+        <div>
+          <h3>Eldorado Seller Brief</h3>
+          <p>Live market, ROI by category, restricted gates, money math, and the do-now list</p>
+       </div>
+        <span class="arrow">→</span>
+     </a>
+
+      <a class="index-card" href="#" data-tab-link="fees">
+        <div class="icon fees">📊</div>
+        <div>
+          <h3>Seller Fee Guide</h3>
+          <p>Eldorado vs G2G: commission, withdrawal, KYC, escrow, worst-case math</p>
+       </div>
+        <span class="arrow">→</span>
+     </a>
+
+      <a class="index-card" href="#" data-tab-link="stores">
+        <div class="icon stores">🛍️</div>
+        <div>
+          <h3>Selling Online</h3>
+          <p>Digital products playbook — pricing tiers, platforms, fulfillment, what to avoid</p>
+       </div>
+        <span class="arrow">→</span>
+     </a>
+
+      <div class="index-card" style="background: rgba(196, 181, 253, 0.08); cursor: default;">
+        <div class="icon" style="background: rgba(196, 181, 253, 0.15); border: 1px solid var(--lavender);">💡</div>
+        <div>
+          <h3>How to use this</h3>
+          <p>Click any tab above to jump to a topic. Use back/forward in your browser to move between them — each is its own page-sized section</p>
+       </div>
+     </div>
+   </div>
+
+ </section>
+
+  <!-- ============ BRAINROT + MM2 TRADING ============ -->
+  <section class="panel" id="panel-brainrot">
+
+    <div class="badge-row reveal">
+      <span class="step">RESEARCH</span><span class="dot"></span>
+      <span class="step">JOIN DISCORDS</span><span class="dot"></span>
+      <span class="step">VERIFY TRADERS</span><span class="dot"></span>
+      <span class="step" style="color: var(--rose);">TRADE SECURELY</span>
+   </div>
+
+    <section class="card reveal" id="brainrot-under2">
+      <p class="kicker">LIVE LISTINGS 20 AUG 2026</p>
+      <h2 class="sec">Items that actually list under $2</h2>
+      <p class="lede">Pulled from Eldorado shop floors, not value blogs. Blogs lag. Shops do not. Skip anything under $0.50 unless you can move volume — fees eat it</p>
+      <div class="pills">
+        <span class="pill open">Floor $0.02–$0.50</span>
+        <span class="pill">Best flip band $0.50–$1.99</span>
+        <span class="pill lock">Skip sub-$0.50 unless bulk</span>
+     </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Game</th><th>Floor</th><th>Under $2 that actually lists</th><th>Skip / trap</th></tr>
+         </thead>
+          <tbody>
+            <tr>
+              <td>Steal a Brainrot</td>
+              <td class="num opencell" data-label="Floor">$0.50</td>
+              <td data-label="Under $2 listings">Bacuru and Egguru, Chill Puppy $0.50. Noo my Heart $0.99. Honey Honey Bear, Los Fruits, Los Candies, Ketupat Kepat, 1x1x1x1 $1.00. Gold Gold Gold $1.30. Chipso and Queso $1.70. Ventoliero Pavonero, Orcaledon, Los Planitos $1.99</td>
+              <td data-label="Skip / trap">Strawberry Elephant / 67 / Eviledon are not this band. Commons with 100M+ copies sit forever</td>
+           </tr>
+            <tr>
+              <td>Murder Mystery 2</td>
+              <td class="num opencell" data-label="Floor">$0.35</td>
+              <td data-label="Under $2 listings">Godly Frostbird pet $0.35. Clockwork, Ghostblade $0.50. Fang $0.75. Nebula $0.88. Frostsaber $0.97. Gemstone $0.98. Heart pet $0.98. Shark $1.20. Iceflake $1.94. Chroma Deathshard $1.87</td>
+              <td data-label="Skip / trap">Vintage OG knives are dead demand. Chroma Darkbringer / Lightbringer / Luger list $1–$4 because they are oversupplied — rarity is not demand</td>
+           </tr>
+            <tr>
+              <td>Blox Fruits</td>
+              <td class="num opencell" data-label="Floor">$0.30</td>
+              <td data-label="Under $2 listings">Perm Rocket / Spin $0.30–$0.50. Perm Blade $0.50–$1. Perm Spring $0.80–$1.30. Perm Bomb $1.20–$1.50. Perm Smoke $1.30–$1.90. Physical Spin 75R $0.50. Gas $0.95. Yeti $1.15–$1.97. Tiger $1.99</td>
+              <td data-label="Skip / trap">Physical Kitsune starts ~$3. 2x Money pass ~$2.30. Perms under $2 are common stock — move them, do not sit on them</td>
+           </tr>
+            <tr>
+              <td>Adopt Me</td>
+              <td class="num opencell" data-label="Floor">$0.05</td>
+              <td data-label="Under $2 listings">Diamond Mahi Mahi $0.05. Diamond Griffin $0.06. Sea Turtle, Golden Dragon $0.10. Unicorn $0.30. Quokka $0.65. Firefly (fly) $0.99. Glyptodon NR $1.20. Warthog NR $1.87. Dragonfly NF $1.90</td>
+              <td data-label="Skip / trap">No-potion legendaries at $0.05–$0.10 are junk volume. Neon + fly/ride is the only under-$2 lane worth listing</td>
+           </tr>
+            <tr>
+              <td>Plants vs Brainrots</td>
+              <td class="num opencell" data-label="Floor">$0.10</td>
+              <td data-label="Under $2 listings">Starfruit $0.10. 50k+ DPS plants $0.25. Tomatrio 10x $0.50. Gattolini Owlini $0.50. Rebirth 1 material $0.50. Eggplant $0.75. Mango ~$1</td>
+              <td data-label="Skip / trap">High-volume sellers already own the $0.10–$0.50 grid. Need a named plant, not raw DPS spam</td>
+           </tr>
+            <tr>
+              <td>Grow a Garden 2</td>
+              <td class="num" data-label="Floor">$0.003</td>
+              <td data-label="Under $2 listings">Trowels $0.0029. Moon bloom seed $0.008. Mega/sun bloom $0.01. Unicorn $0.02. Dragonfly $0.06. Plum seed $0.30. Raccoon $0.60</td>
+              <td data-label="Skip / trap">Sub-cent seeds are fee death. Only pets $0.50+ are worth a listing</td>
+           </tr>
+            <tr>
+              <td>Fisch</td>
+              <td class="num opencell" data-label="Floor">$0.02</td>
+              <td data-label="Under $2 listings">Cosmic Relic $0.02. Ruby / Lapis $0.10. Chaotic Relic $0.11. Ruby / Opal $0.17. Moonstone $0.19. Admin Relic $0.30</td>
+              <td data-label="Skip / trap">Relics at $0.02–$0.11 need bulk. Single-unit listings lose to fees</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+      <p class="note">Best under-$2 resale lanes: Steal a Brainrot $0.50–$1.99 named units, MM2 cheap godlys $0.35–$1.20, Blox Fruits common perms $0.50–$1.90</p>
+   </section>
+
+    <section class="card hero-card reveal" id="brainrot-market">
+      <h2>Steal a Brainrot Dominates Eldorado.gg</h2>
+      <p class="lede" style="opacity:0.92; max-width:none;">The #1 brainrot marketplace with active summer 2026 updates and Trade Plaza features</p>
+      <ol>
+        <li><a href="https://www.eldorado.gg/steal-a-brainrot-brainrots/i/259">Primary Shop</a> — main brainrot listings</li>
+        <li><a href="https://www.eldorado.gg/blog/steal-a-brainrot-trading-values/">Current Values</a> — weekly price updates</li>
+        <li><a href="https://www.eldorado.gg/blog/sell-roblox-brainrot-pets-real-money/">Selling Guide</a> — how to list for profit</li>
+        <li><a href="https://www.eldorado.gg/blog/steal-a-brainrot-summer-update-part-2/">Summer 2026 Update</a> — Trade Plaza & live features</li>
+     </ol>
+      <div class="btn-row">
+        <a class="btn" href="https://www.eldorado.gg/steal-a-brainrot-brainrots/i/259">View Brainrot Shop</a>
+        <a class="btn ghost" href="https://www.eldorado.gg/67-steal-a-brainrot/i/259">Check 67 Variant</a>
+     </div>
+   </section>
+
+    <section class="card reveal" id="brainrot-discord">
+      <p class="kicker">SECURE TRADING COMMUNITIES</p>
+      <h2 class="sec">Discord Servers with Middleman / Escrow</h2>
+      <div class="grid2">
+        <div class="mini">
+          <h3>Brainrot-Focused</h3>
+          <ul class="facts">
+            <li><a href="https://discord.com/servers/steal-a-brainrot-trading-hub-1202742915995279430">Steal A Brainrot Trading Hub</a> — verified middleman</li>
+            <li><a href="https://discord.com/invite/stealarot">Free Middleman Trading</a> — no-fee escrow</li>
+            <li><a href="https://top.gg/discord/servers/804422541614952448">Trading & Middleman Service</a> — top.gg verified</li>
+            <li><a href="https://disboard.org/server/1461718234834407499">Brainrot Middleman Trading</a> — DISBOARD listed</li>
+            <li><a href="https://discord.com/invite/thebrainrot">Rick's Middleman Services</a></li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>MM2 & Cross-Platform</h3>
+          <ul class="facts">
+            <li><a href="https://discord.com/invite/murdermystery2trades">MM2 24/7 Trading Server</a></li>
+            <li><a href="https://discord.com/invite/murdermystery">MM2 Trading Core</a></li>
+            <li><a href="https://discadia.com/server/zenvix-middleman-services/">Market Discord Server</a></li>
+            <li><a href="https://top.gg/discord/servers/tag/mm2-trading">MM2 Trading Servers List</a></li>
+            <li><a href="https://disboard.org/servers/tag/mm2-trading">DISBOARD MM2-Trading Tag</a></li>
+         </ul>
+       </div>
+     </div>
+   </section>
+
+    <section class="card reveal" id="brainrot-scaling">
+      <p class="kicker">FROM FLIPPER TO SCALED SELLER</p>
+      <h2 class="sec">Scaling Up on Eldorado.gg</h2>
+      <p class="lede">Item flipping under $2 builds first-sale experience and feedback. Scaling means moving into higher-fee lanes with higher per-order value, or multiplying flip volume</p>
+      <div class="pills" style="margin-bottom:16px">
+        <span class="pill">4 scaling paths</span>
+        <span class="pill lock">Accounts: 10–30% fee</span>
+        <span class="pill later">Boosting: 10–20% fee</span>
+        <span class="pill open">Roblox Items: 5% fee</span>
+     </div>
+      <div class="grid2">
+        <div class="mini">
+          <h3>Path 1 — Roblox Items</h3>
+          <p>Lowest fee (5%), bulk CSV upload, multiple-accounts feature, volume discount tiers. SaB named brainrots $1–$5, MM2 cheap godlys, Blox Fruits perms</p>
+       </div>
+        <div class="mini">
+          <h3>Path 2 — Game Accounts</h3>
+          <p>Highest per-order value at 10–30% fee. Source via recovery services, power-leveling, or bulk purchase from creators</p>
+       </div>
+        <div class="mini">
+          <h3>Path 3 — Boosting</h3>
+          <p>Time-for-margin. 10–20% fee. Specialist > generalist. Use screenshots, reply within 12 h on disputes, no cheats</p>
+       </div>
+        <div class="mini">
+          <h3>Path 4 — Currency & Top-Up</h3>
+          <p>5% on currency, 0% on top-ups / gift cards. Highest-margin lane if you have the stock pipeline</p>
+       </div>
+     </div>
+      <div class="warnbox">Keep all communication on Eldorado chat. Off-platform payments = permaban. One account only per person</div>
+   </section>
+
+ </section>
+
+  <!-- ============ MM2 LEVELING ============ -->
+  <section class="panel" id="panel-mm2-level">
+
+    <header class="hero reveal">
+      <div class="badge-circle" style="border-color: var(--coral);">
+        <span class="b-top">MM2</span>
+        <span class="b-run" style="color: var(--coral);">🔪</span>
+        <span class="b-hq" style="background: var(--coral);">LEVELING</span>
+     </div>
+      <h1 style="font-size: clamp(1.5rem, 5vw, 2.2rem);">Murder Mystery 2 — <span class="accent" style="color: var(--coral);">Level Up Fast</span></h1>
+      <p class="tagline">Every second alive earns XP. Here's how to maximize it</p>
+      <p class="asof">Updated August 2026</p>
+   </header>
+
+    <section class="card reveal">
+      <p class="kicker">THE SYSTEM</p>
+      <h2 class="sec">How XP Actually Works</h2>
+      <p class="lede">Most players waste rounds collecting coins and hit level caps without ranking up. Here's the mechanic they miss</p>
+      <ul class="facts">
+        <li><b>XP comes from survival time and role actions</b> — not coins. Coins cap at 50 per round and buy cosmetics only</li>
+        <li><b>Win rounds consistently</b> Every round completed adds XP passively based on how long you stayed alive</li>
+        <li><b>Role matters</b> Innocents earn for survival. Sheriffs earn for <i>stopping the murderer</i>. Murderers earn for <i>kills</i></li>
+        <li><b>Coins ≠ XP</b> You could collect max coins every round and never gain a single level if you die in the first 10 seconds</li>
+     </ul>
+      <div class="infobox">
+        <b style="color: var(--butter);">Core rule</b> Survival time is the #1 XP multiplier. Play to stay alive, not to score kills. Every extra 30 seconds in a round is extra XP banked.
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">POSITIONING</p>
+      <h2 class="sec">Map Picks That Accelerate XP</h2>
+      <p class="lede">The map you vote for directly changes how fast you level. Pick the right one for your current goal</p>
+      <div class="grid2">
+        <div class="mini">
+          <h3>🔫 Combat Maps — Fast Rounds</h3>
+          <ul class="facts">
+            <li>House 2, Office 2 — small, aggressive</li>
+            <li>Best for Sheriff XP quick-flips</li>
+            <li>Rounds end fast — for shorter sessions</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>⚖️ Balanced Maps — Steady XP</h3>
+          <ul class="facts">
+            <li>Biolab, Hospital 3 — mid-sized layouts</li>
+            <li>Good hiding spots + manageable kill chases</li>
+            <li>Easy to pick up consistently</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>🕵️ Large Maps — Max Survival</h3>
+          <ul class="facts">
+            <li>Factory, Mansion 2 — sprawling layouts</li>
+            <li>Longest survival time per round</li>
+            <li>Best for Innocent XP grinds</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>🎯 Story Maps — Varied</h3>
+          <ul class="facts">
+            <li>Unique layouts with objectives</li>
+            <li>Distract the murderer by completing tasks</li>
+            <li>Survival XP stacks while the killer is busy</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">ROLE PLAY</p>
+      <h2 class="sec">Innocent · Sheriff · Murderer</h2>
+      <div class="grid2">
+        <div class="mini">
+          <h3>😇 Innocent</h3>
+          <p class="lede" style="margin-bottom:8px;">Survival = XP. Speed kills your rank</p>
+          <ul class="facts">
+            <li>Rotate hiding spots — repeat one trick makes you predictable</li>
+            <li>Stay near groups but don't cluster at the choke</li>
+            <li>Call suspicious behavior early and clearly</li>
+            <li>Vote for maps with lots of hiding options</li>
+         </ul>
+          <div class="note" style="margin-top:10px; padding: 8px 12px;">Best map: <b>Mansion 2</b> or <b>Factory</b> — hide, listen, call out</div>
+       </div>
+        <div class="mini">
+          <h3>👮 Sheriff</h3>
+          <p class="lede" style="margin-bottom:8px;">One clean shot = big XP. Rushing = wasted round</p>
+          <ul class="facts">
+            <li>Landing the shot on the murderer gives a huge XP boost</li>
+            <li>Patience wins — bait the murderer into making a move</li>
+            <li>Use psychological tricks: fake hesitation</li>
+            <li>Practice aim in custom lobbies</li>
+         </ul>
+          <div class="note" style="margin-top:10px; padding: 8px 12px;">Best map: <b>Office 2</b> or <b>House 2</b> — tight corridors = guaranteed sightlines</div>
+       </div>
+        <div class="mini">
+          <h3>💀 Murderer</h3>
+          <p class="lede" style="margin-bottom:8px;">Patience > rushing. Each slow kill = more rounds = more XP</p>
+          <ul class="facts">
+            <li>Watch the map — isolate players who wander alone</li>
+            <li>Longer round = more total XP from all your kills</li>
+            <li>Use psychological play: make Innocents doubt each other</li>
+            <li>Sabotage (if available) creates chaos — hunt during the distraction</li>
+         </ul>
+          <div class="note" style="margin-top:10px; padding: 8px 12px;">Best map: <b>Biolab</b> — enough cover to stalk, enough structure to separate groups</div>
+       </div>
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">ADVANCED</p>
+      <h2 class="sec">Pro Grinding Tips</h2>
+      <ol class="steps">
+        <li><b>Play with friends</b> Communication extends round survival by a huge margin. Call out the murderer's position and coordinate body-checking</li>
+        <li><b>Switch roles every few rounds</b> Staying alive as Innocent builds XP, but a Sheriff round is a jackpot. Mix it up</li>
+        <li><b>Don't burn out</b> Grinding XP is easier when you're enjoying it. Take breaks — steady sessions outperform marathon burns</li>
+        <li><b>Use cosmetics as bait</b> Rare items make players cautious or distracted — use that tension to slip past them</li>
+        <li><b>Focus on "smart plays" over aggressive plays</b> A good surviving Innocent who never kills anyone will outrank an aggressive Murderer who gets shot in round one.</li>
+      </ol>
+    </section>
+
+  </section>
+
+  <!-- ============ SELLER BRIEF ============ -->
+  <section class="panel" id="panel-seller-brief">
+
+    <header class="hero reveal">
+      <div class="badge-circle">
+        <span class="b-top">SELLER</span>
+        <span class="b-run">brief</span>
+        <span class="b-hq">ELDORADO</span>
+     </div>
+      <h1 style="font-size: clamp(1.5rem, 5vw, 2.2rem);">Become a Seller on <span class="accent">Eldorado.gg</span></h1>
+      <p class="tagline">Open eldorado.gg/become-seller, create the account, and start ID verification</p>
+      <p class="asof">Research compiled 19 Aug 2026</p>
+   </header>
+
+    <section class="card reveal">
+      <p class="kicker">DO NOW · 20 MINUTES</p>
+      <h2 class="sec">Get verified & list</h2>
+      <ol class="steps">
+        <li>Read <a href="https://support.eldorado.gg/en/articles/8409002-how-to-sell-an-account">How to sell an account</a> and <a href="https://support.eldorado.gg/en/articles/8408996-account-seller-rules">Account seller rules</a></li>
+        <li>Open <a href="https://www.eldorado.gg/become-seller">Become a Seller</a> → Start Verification</li>
+        <li>Have a real government ID ready (passport or ID card, full document in frame) plus a live selfie</li>
+        <li>Sell only accounts you created and fully control (login + email + recovery answers). Stolen, shared, rented, or recovered-after-sale inventory is a permanent ban</li>
+        <li>Pick an open category for the first 250 sales (see ranking below)</li>
+     </ol>
+      <div class="infobox">
+        Only Gmail, Outlook, Yahoo, AOL, or Protonmail are accepted without extra steps. Accounts leveled with cheats are permanently banned across all games (Valorant, LoL explicitly).
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">MARKET SNAPSHOT</p>
+      <h2 class="sec">What the Market Actually Looks Like</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Game</th><th>Listings</th><th>New-seller</th><th>Seller fee</th><th>What fills the grid</th></tr></thead>
+          <tbody>
+            <tr><td>League of Legends</td><td class="num">29,132</td><td class="opencell">Open</td><td class="num">~10–15%</td><td>$1–$40 unranked / ranked-ready smurfs</td></tr>
+            <tr><td>Fortnite</td><td class="num">26,813</td><td class="lockcell">Locked</td><td class="num">20%</td><td>OG / stacked skins, $7–$1,100</td></tr>
+            <tr><td>Valorant</td><td class="num">23,155</td><td class="lockcell">Locked</td><td class="num">up to 20%</td><td>Rank + skins, $0.50–$2,199</td></tr>
+            <tr><td>Roblox</td><td class="num">18,669</td><td class="opencell">Accts open; Limiteds locked</td><td class="num">often 15%</td><td>Flood of $0.50 unverified junk</td></tr>
+            <tr><td>GTA 5</td><td class="num">11,617</td><td class="opencell">Open</td><td class="lockcell">30%</td><td>Modded cash/cars, $0.50–$55</td></tr>
+         </tbody>
+       </table>
+     </div>
+      <p class="note">Ignore blog "top 10 ROI" posts — they sell their own marketplace. Live Eldorado supply is the signal</p>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">BEST ROI</p>
+      <h2 class="sec">Where new sellers should focus</h2>
+      <div class="grid2">
+        <div class="mini" style="border-color: var(--mint);">
+          <h3 style="color: var(--mint);">Do now (open, real volume</h3>
+          <ul class="facts">
+            <li><b>LoL hand-leveled ranked account</b> — vast catalog, instant delivery, $10–$40 beats racing $0.99 junk</li>
+            <li><b>Roblox with actual inventory</b> (verified, Robux, named items) — skip the $0.50 2008 unverified pile</li>
+            <li><b>Boosting / currency in a game you already play</b> — faster path to 250 orders than slow account turnover</li>
+         </ul>
+       </div>
+        <div class="mini" style="border-color: var(--lavender);">
+          <h3 style="color: var(--lavender);">Later (after 250 sales / 98%)</h3>
+          <ul class="facts">
+            <li>Fortnite OG / stacked — high ticket, 20% fee, incumbent shops with 50k–200k orders</li>
+            <li>Valorant skins + rank — same gate, same incumbent problem</li>
+         </ul>
+       </div>
+     </div>
+      <div class="warnbox"><b>Skip for ROI: GTA accounts</b> 30% platform cut on $25–$55 listings. After Payoneer/Skrill withdrawal fee you keep half</div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">MONEY MATH</p>
+      <h2 class="sec">Fees & payouts</h2>
+      <p class="lede">Base rates: Items/Accounts/Boosting 10%, Currency 5%, Top Ups/Gift Cards 0%. Game-specific rates push higher (GTA 5 accounts = 30%).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Withdrawal method</th><th>Min</th><th>Fee</th><th>Speed</th></tr></thead>
+          <tbody>
+            <tr><td>Payoneer</td><td class="num">$10 (UA/Latam/Pak/Bangladesh), $25 (US), $50 (RoW)</td><td class="num">4% + $2</td><td>Instant</td></tr>
+            <tr><td>Skrill</td><td class="num">$10</td><td class="num">5% + $1</td><td>Instant</td></tr>
+            <tr><td>SEPA Bank Transfer</td><td class="num">$10</td><td class="num">4% + $5</td><td>Up to 5 business days</td></tr>
+            <tr><td>Bitcoin (BTC)</td><td class="num">$100</td><td class="num">6% + $20</td><td>Up to 5 business days</td></tr>
+            <tr><td>USDC</td><td class="num">$200</td><td class="num">6% + $20</td><td>Up to 5 business days</td></tr>
+         </tbody>
+       </table>
+     </div>
+      <p class="note"><b>Example</b> $30 LoL smurf, 10% sales fee = $27. Payoneer 4% + $2 = ~$23.92 in hand. If that account took 4 hours to produce, effective hourly is ~$6 before tax/refunds</p>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">RESTRICTED CATEGORIES</p>
+      <h2 class="sec">Gates you cannot skip</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Why restricted</th></tr></thead>
+          <tbody>
+            <tr><td>Fortnite accounts (all types)</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>Valorant accounts</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>Epic Games Accounts</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>Discord accounts & items</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>Roblox Limited Items</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>Netflix / Spotify / Crunchyroll / Disney+</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>ChatGPT Top Ups</td><td>Reapply after 30 days if denied</td></tr>
+            <tr><td>All game Top Ups</td><td>Requires 250+ successful sales and 98%+ positive feedback</td></tr>
+            <tr><td>Streaming logins</td><td>Reapply after 30 days if denied</td></tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+
+ </section>
+
+  <!-- ============ FEES ============ -->
+  <section class="panel" id="panel-fees">
+
+    <header class="hero reveal">
+      <div class="badge-circle" style="border-color: var(--mint);">
+        <span class="b-top">FEES</span>
+        <span class="b-run" style="color: var(--mint);">vs</span>
+        <span class="b-hq" style="background: var(--mint); color: var(--bg-deep);">ELDORADO / G2G</span>
+     </div>
+      <h1 style="font-size: clamp(1.5rem, 5vw, 2.2rem);">Seller Fee Guide: <span class="accent" style="color: var(--mint);">Eldorado.gg</span> vs <span class="accent" style="color: var(--lavender);">G2G.com</span></h1>
+      <p class="tagline">The full cost of selling on each platform — commission, withdrawal, KYC, escrow, hidden rules</p>
+      <p class="asof">Updated 22 Aug 2026</p>
+   </header>
+
+    <section class="card reveal">
+      <p class="kicker">TL;DR</p>
+      <div class="grid2">
+        <div class="mini" style="border-color: var(--mint);">
+          <h3 style="color: var(--mint);">Eldorado.gg</h3>
+          <p>Best for currency sellers, top-up sellers, and anyone who wants <b>instant withdrawal</b>. 30% commission on GTA 5 accounts, 20% on COD/Fortnite/R6. 0% on gift cards and top-ups is unbeatable</p>
+          <p style="color: var(--ink-3); font-size: 0.85rem; margin-top: 8px;">~1.5–30% commission · instant to 5-day payouts</p>
+       </div>
+        <div class="mini" style="border-color: var(--lavender);">
+          <h3 style="color: var(--lavender);">G2G.com</h3>
+          <p>Best for account sellers who grind Legendary rank (7.99% vs Eldorado's 10%). 14-day account hold is the biggest pain. Wider game catalog. PayPal option attracts more buyers — but you get PayPal-charged too</p>
+          <p style="color: var(--ink-3); font-size: 0.85rem; margin-top: 8px;">4.99–12.99% commission · 15 min–14 day credit</p>
+       </div>
+     </div>
+      <div class="infobox">
+        Both operate the same way — buyer pays the marketplace, marketplace holds money in escrow until the seller delivers, marketplace takes commission, seller gets the rest minus withdrawal fees.
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">COMMISSION</p>
+      <h2 class="sec">Eldorado.gg — seller commission</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Fee</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Top-Up</td><td><span class="opencell">0%</span></td><td>Lowest available</td></tr>
+            <tr><td>Gift Card</td><td><span class="opencell">0%</span></td><td>Lowest available</td></tr>
+            <tr><td>Currency (general)</td><td><span class="opencell">5%</span></td><td>Fixed rate</td></tr>
+            <tr><td>Old School RS Gold</td><td><span class="opencell">1.5%</span></td><td>Game-specific reduction</td></tr>
+            <tr><td>Old School RS items</td><td><span class="opencell">3%</span></td><td>Game-specific reduction</td></tr>
+            <tr><td>Accounts (general)</td><td>10%</td><td>Baseline; varies by game</td></tr>
+            <tr><td>Items (general)</td><td>10%</td><td>Effectively 10% baseline</td></tr>
+            <tr><td>Boosting (general)</td><td>10%</td><td>Varies by game</td></tr>
+            <tr><td>COD / Fortnite / R6 accounts</td><td><span class="lockcell">20%</span></td><td>Game-specific premium</td></tr>
+            <tr><td>LoL / COD / OSRS boosting</td><td><span class="lockcell">20%</span></td><td>Game-specific premium</td></tr>
+            <tr><td>GTA 5 accounts</td><td><span class="lockcell">30%</span></td><td>Highest rate — avoid if possible</td></tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">COMMISSION BY RANK</p>
+      <h2 class="sec">G2G.com — rank discount ladder</h2>
+      <p class="lede">No listing fees. Commission after sale. Rank based on monthly sales volume — upgraded if you hit targets, downgraded after 2 missed months</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Normal</th><th>Common</th><th>Uncommon</th><th>Rare</th><th>Epic</th><th>Legendary</th></tr></thead>
+          <tbody>
+            <tr><td>Currency / Other Service</td><td><span class="lockcell">9.99%</span></td><td>8.99%</td><td>7.99%</td><td>6.99%</td><td>5.99%</td><td><span class="opencell">4.99%</span></td></tr>
+            <tr><td>Accounts / Account Service</td><td><span class="lockcell">12.99%</span></td><td>11.99%</td><td>10.99%</td><td>9.99%</td><td>8.99%</td><td><span class="opencell">7.99%</span></td></tr>
+            <tr><td>Software & Apps</td><td><span class="lockcell">19.99%</span></td><td>18.99%</td><td>17.99%</td><td>16.99%</td><td>15.99%</td><td><span class="opencell">14.99%</span></td></tr>
+         </tbody>
+       </table>
+     </div>
+      <p class="note">Flat-rate categories: Top-Ups, Gift Cards, Software, Video Games at 4.99% · GamePal 9.99% · Game Coaching 9.99%</p>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">WITHDRAWALS</p>
+      <h2 class="sec">Side-by-side fee & timing</h2>
+      <div class="grid2">
+        <div class="mini">
+          <h3 style="color: var(--mint);">Eldorado withdrawals</h3>
+          <ul class="facts">
+            <li><b>Payoneer</b> 4% + $2, instant (USD)</li>
+            <li><b>Skrill</b> 5% + $1, instant (EUR)</li>
+            <li><b>SEPA</b> 4% + $5, up to 5 business days</li>
+            <li><b>BTC</b> 6% + $20, up to 5 business days</li>
+            <li><b>USDC</b> 6% + $20, up to 5 business days</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3 style="color: var(--lavender);">G2G withdrawals (USD</h3>
+          <ul class="facts">
+            <li><b>PayPal</b> 0.99–2.99% + $0.99 (best)</li>
+            <li><b>US Local Bank</b> 0.99–2.99% + $2.99</li>
+            <li><b>Payoneer</b> 0.99–2.99% + $3.99</li>
+            <li><b>SWIFT Global Bank</b> 0.99–2.99% + $13.99</li>
+            <li><b>Crypto</b> 2.99–4.99% + $0.99 + network fee</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">VERDICT</p>
+      <h2 class="sec">Pick your platform</h2>
+      <div class="procon">
+        <div class="pcard pros">
+          <h4>Pick Eldorado if…</h4>
+          <ul>
+            <li>You sell currency, top-ups, gift cards, or OSRS gold (0% / 1.5% — industry leaders)</li>
+            <li>You want instant payouts via Payoneer/Skrill</li>
+            <li>You want the buyer trust of a 4.4–4.5★ Trustpilot at huge volume</li>
+            <li>You avoid GTA 5 accounts (30% makes it math-negative)</li>
+         </ul>
+       </div>
+        <div class="pcard pros">
+          <h4 style="color: var(--lavender);">Pick G2G if…</h4>
+          <ul>
+            <li>You sell accounts at scale (7.99% at Legendary vs Eldorado's 10%)</li>
+            <li>You can grind 4.99% on Software (Eldorado charges 19.99%)</li>
+            <li>You want PayPal payout with independent dispute channel</li>
+            <li>You're willing to invest in rank & tolerate the 14-day account hold</li>
+         </ul>
+       </div>
+     </div>
+      <div class="warnbox"><b>Worst case</b> $100 GTA 5 account on Eldorado = 30% commission + 4% + $2 Payoneer = $56 cut. You receive $44. Avoid Eldorado for GTA</div>
+   </section>
+
+ </section>
+
+  <!-- ============ SELLING ONLINE ============ -->
+  <section class="panel" id="panel-stores">
+
+    <header class="hero reveal">
+      <div class="badge-circle" style="border-color: var(--sky);">
+        <span class="b-top">SELL</span>
+        <span class="b-run" style="color: var(--sky);">store</span>
+        <span class="b-hq" style="background: var(--sky); color: var(--bg-deep);">DIGITAL</span>
+     </div>
+      <h1 style="font-size: clamp(1.5rem, 5vw, 2.2rem);">Selling <span class="accent" style="color: var(--sky);">Digital Products</span> Online</h1>
+      <p class="tagline">Where gaming flips meet digital storefronts — pricing, packaging, channels</p>
+      <p class="asof">Compiled 22 Aug 2026</p>
+   </header>
+
+    <section class="card reveal">
+      <p class="kicker">WHAT YOU CAN SELL</p>
+      <h2 class="sec">Digital products that fit this stack</h2>
+      <div class="grid2">
+        <div class="mini">
+          <h3>Roblox / Game items</h3>
+          <ul class="facts">
+            <li>SaB named brainrots via Eldorado (5% fee)</li>
+            <li>MM2 godlys & chromas (under-$2 flip band)</li>
+            <li>Blox Fruits perms & physical kitsune stock</li>
+            <li>Adopt Me neon legendaries with fly/ride</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>Accounts & boosts</h3>
+          <ul class="facts">
+            <li>Hand-leveled LoL ranked accounts</li>
+            <li>Fortnite OG / stacked accounts (after 250-sales gate)</li>
+            <li>Valorant skin + rank accounts (after 250-sales gate)</li>
+            <li>Game boosting services (specialist lanes)</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>Currency & top-ups</h3>
+          <ul class="facts">
+            <li>OSRS gold (1.5% — best fee band)</li>
+            <li>Currency in games you already play (5%)</li>
+            <li>Top-ups and gift cards (0% on Eldorado)</li>
+         </ul>
+       </div>
+        <div class="mini">
+          <h3>Knowledge / guides</h3>
+          <ul class="facts">
+            <li>Brainrot + rebirth roadmap PDFs (sell on Gumroad / Etsy)</li>
+            <li>MM2 leveling / XP spreadsheets</li>
+            <li>Eldorado seller SOP packs (sourcing, listing, dispute playbooks)</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">CHANNELS</p>
+      <h2 class="sec">Where to sell (free or near-free</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Channel</th><th>Best for</th><th>Fee</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Eldorado.gg</td><td>Roblox / game items, accounts, boosts</td><td class="num">0–30%</td><td>TradeShield escrow, instant payouts</td></tr>
+            <tr><td>G2G.com</td><td>Accounts at scale, software</td><td class="num">4.99–19.99%</td><td>Grind to Legendary for 7.99%</td></tr>
+            <tr><td>Gumroad</td><td>Digital guides / PDFs</td><td class="num">10%</td><td>Free tier, simple checkout</td></tr>
+            <tr><td>itch.io</td><td>Indie tools, plugins, scripts</td><td class="num">0–10%</td><td>Pay-what-you-want friendly</td></tr>
+            <tr><td>Discord (your own server)</td><td>Memberships, drops, alerts</td><td class="num">0%</td><td>Bring your own Stripe / Ko-fi for billing</td></tr>
+            <tr><td>Ko-fi</td><td>Tips, memberships, small digital goods</td><td class="num">0% on tips</td><td>Free shop on the pay-monthly plan</td></tr>
+         </tbody>
+       </table>
+     </div>
+      <p class="note">All listed options have a free tier. Default to the free plan until you have revenue that justifies paid tiers</p>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">PRICING</p>
+      <h2 class="sec">Pricing tiers that actually convert</h2>
+      <ol class="steps">
+        <li><b>Tier 1 — Impulse ($1–$5)</b> SaB named brainrots, MM2 cheap godlys, Blox Fruits perms. Lowest friction, fast turnover</li>
+        <li><b>Tier 2 — Considered ($10–$40)</b> Hand-leveled LoL ranked accounts, MM2 chromas, named plants / pets with neon + potion</li>
+        <li><b>Tier 3 — Big ticket ($50+)</b> Fortnite OG / stacked, Valorant skin + rank, ranked GM+ accounts. Highest fee tiers — check commission math first</li>
+        <li><b>Tier 4 — Knowledge</b> Guides, spreadsheets, SOP packs. Near-0% marginal cost. Highest gross margin if traffic is there</li>
+     </ol>
+      <div class="infobox">
+        <b>Fee math rule of thumb</b> a $1 item at 5% fee = $0.95 net. Anything under $0.50 needs bulk or it's a fee loss. Always price with the platform fee baked in.
+     </div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">PACKAGING & DELIVERY</p>
+      <h2 class="sec">What makes a listing convert</h2>
+      <ul class="facts">
+        <li><b>Clear title</b> Max 2 keywords. Name the variant, the platform, the rank, the season. Buyers scan, not read</li>
+        <li><b>Real screenshots</b> Inventory + email on the same screen. Max 5 photos. Current, not stock</li>
+        <li><b>Delivery time</b> Don't overpromise. Under-promise and beat it — Instant should mean actually instant</li>
+        <li><b>Reply speed</b> Items: first reply in 30 minutes or auto-cancel. Account disputes: proof in 12 hours or refunded</li>
+        <li><b>Stay on-platform</b> All chat, all payment. Off-platform = permaban</li>
+     </ul>
+      <div class="warnbox"><b>Hard rules that get stores banned</b> off-site payment · off-site ads · fake titles · more than 2 keywords · lottery / random loot · under-18 · multi-accounting · insults · late delivery as a habit</div>
+   </section>
+
+    <section class="card reveal">
+      <p class="kicker">SCALING</p>
+      <h2 class="sec">From flippers to storefront</h2>
+      <div class="grid2">
+        <div class="mini" style="border-color: var(--rose);">
+          <h3 style="color: var(--rose);">Volume path</h3>
+          <p>Multiply the under-$2 lane. CSV bulk upload, multiple-accounts feature, volume discounts. Stock depth beats rarity at this tier</p>
+       </div>
+        <div class="mini" style="border-color: var(--lavender);">
+          <h3 style="color: var(--lavender);">Margin path</h3>
+          <p>Move up to accounts, boosting, currency. Higher fees, but fewer units needed. Spend saved time on sourcing, not listing</p>
+       </div>
+        <div class="mini" style="border-color: var(--mint);">
+          <h3 style="color: var(--mint);">Productized path</h3>
+          <p>Package your SOP as a digital product. Sell on Gumroad, Ko-fi, your own Discord. Zero platform fee on tips / memberships</p>
+       </div>
+        <div class="mini" style="border-color: var(--butter);">
+          <h3 style="color: var(--butter);">Reputation path</h3>
+          <p>Maintain 98%+ feedback, hit 250 sales, unlock the gated categories. Reputation compounds — every positive review raises your cut at G2G and your Trustpilot visibility at Eldorado</p>
+       </div>
+     </div>
+   </section>
+
+ </section>
+
+  <footer class="foot reveal">
+    <p>GENTLE STACK · 5 GUIDES · <span class="g">ONE QUIET PLACE</span></p>
+    <p style="margin-top: 6px; opacity: 0.7;">Sources: Eldorado Help Center, G2G Support Center, MM2 Wiki, BloxBoom, GoSkins, eldorado-vs-g2g-seller-research.md (Aug 2026)</p>
+ </footer>
+
+</main>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('#tabs .tab');
+  var panels = document.querySelectorAll('.panel');
+  var tabLinks = document.querySelectorAll('[data-tab-link]');
+
+  function activate(name) {
+    tabs.forEach(function(t) {
+      t.classList.toggle('active', t.getAttribute('data-tab') === name);
+    });
+    panels.forEach(function(p) {
+      p.classList.toggle('active', p.id === 'panel-' + name);
+    });
+    if (history.replaceState) history.replaceState(null, '', '#' + name);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(function(t) {
+    t.addEventListener('click', function() { activate(t.getAttribute('data-tab')); });
+  });
+
+  tabLinks.forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      activate(a.getAttribute('data-tab-link'));
+    });
+  });
+
+  // Open tab from URL hash if present
+  var initial = (location.hash || '').replace('#', '');
+  if (initial && document.getElementById('panel-' + initial)) {
+    activate(initial);
+  }
+})();
+</script>
+
+</body>
+</html>
